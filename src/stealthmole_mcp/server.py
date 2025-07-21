@@ -943,7 +943,7 @@ async def handle_call_tool(name: str, arguments: dict[str, Any]) -> list[TextCon
             return [TextContent(type="text", text=f"Unknown tool: {name}")]
 
         # Format response
-        response_text = f"StealthMole API Results:\n\n{result}\n\n---\nWould you like to browse the next page of results?"
+        response_text = f"StealthMole API Results:{result}"
         return [TextContent(type="text", text=response_text)]
 
     except asyncio.TimeoutError:
