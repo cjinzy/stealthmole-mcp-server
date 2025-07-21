@@ -1,5 +1,5 @@
 name: stealthmole-search
-version: 1.0
+version: 0.9.0
 description: StealthMole MCP Server - Advanced threat intelligence and dark web monitoring tools
 author: StealthMole Team
 homepage: https://github.com/cjinzy/mole-mcp-server
@@ -63,6 +63,12 @@ tools:
     description: "Get available search targets"
   - name: export_data
     description: "Export search results in various formats"
+  - name: export_compromised_dataset
+    description: "Export compromised data set as CSV/JSON"
+  - name: export_combo_binder
+    description: "Export combo binder data as CSV/JSON"
+  - name: export_ulp_binder
+    description: "Export ULP binder data as CSV/JSON"
   - name: download_file
     description: "Download file by hash from dt or tt service"
   - name: search_pagination
@@ -86,7 +92,9 @@ startCommand:
       STEALTHMOLE_SECRET_KEY:
         type: string
         description: "StealthMole API Secret Key"
-  commandFunction: |-
+  commandFunction:
+    # A JS function that produces the CLI command based on the given config to start the MCP on stdio.
+    |-
     (config) => ({
       command: 'python',
       args: ['-m', 'stealthmole_mcp.server'],

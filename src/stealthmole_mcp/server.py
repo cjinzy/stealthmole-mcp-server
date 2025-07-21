@@ -483,8 +483,7 @@ async def handle_list_tools() -> list[Tool]:
                     "properties": {
                         "service": {
                             "type": "string",
-                            "enum": ["cl", "cds", "cb", "ub"],
-                            "description": "Service type (cl, cds, cb, ub)",
+                            "description": "Service type (dt, tt, cl, rm, etc.)",
                         },
                         "indicator": {
                             "type": "string",
@@ -516,6 +515,26 @@ async def handle_list_tools() -> list[Tool]:
                             "default": 50,
                             "minimum": 1,
                             "maximum": 50,
+                        },
+                    },
+                    "required": ["indicator"],
+                },
+            ),
+            Tool(
+                name="export_compromised_dataset",
+                description="Export compromised data set as CSV/JSON",
+                inputSchema={
+                    "type": "object",
+                    "properties": {
+                        "indicator": {
+                            "type": "string",
+                            "description": "The indicator to export data for",
+                        },
+                        "format": {
+                            "type": "string",
+                            "description": "Export format (json or csv)",
+                            "enum": ["json", "csv"],
+                            "default": "json",
                         },
                     },
                     "required": ["indicator"],
@@ -557,6 +576,26 @@ async def handle_list_tools() -> list[Tool]:
                 },
             ),
             Tool(
+                name="export_combo_binder",
+                description="Export combo binder data as CSV/JSON",
+                inputSchema={
+                    "type": "object",
+                    "properties": {
+                        "indicator": {
+                            "type": "string",
+                            "description": "The indicator to export data for",
+                        },
+                        "format": {
+                            "type": "string",
+                            "description": "Export format (json or csv)",
+                            "enum": ["json", "csv"],
+                            "default": "json",
+                        },
+                    },
+                    "required": ["indicator"],
+                },
+            ),
+            Tool(
                 name="search_ulp_binder",
                 description="Search URL-Login-Password combination information",
                 inputSchema={
@@ -572,6 +611,26 @@ async def handle_list_tools() -> list[Tool]:
                             "default": 50,
                             "minimum": 1,
                             "maximum": 50,
+                        },
+                    },
+                    "required": ["indicator"],
+                },
+            ),
+            Tool(
+                name="export_ulp_binder",
+                description="Export ULP binder data as CSV/JSON",
+                inputSchema={
+                    "type": "object",
+                    "properties": {
+                        "indicator": {
+                            "type": "string",
+                            "description": "The indicator to export data for",
+                        },
+                        "format": {
+                            "type": "string",
+                            "description": "Export format (json or csv)",
+                            "enum": ["json", "csv"],
+                            "default": "json",
                         },
                     },
                     "required": ["indicator"],
@@ -821,6 +880,10 @@ async def handle_call_tool(name: str, arguments: dict[str, Any]) -> list[TextCon
             result = await client.search_compromised_dataset(
                 indicator=arguments["indicator"], limit=arguments.get("limit", 50)
             )
+        elif name == "export_compromised_dataset":
+            result = await client.export_compromised_dataset(
+                indicator=arguments["indicator"], format=arguments.get("format", "json")
+            )
         elif name == "get_compromised_dataset_node":
             result = await client.get_compromised_dataset_node(
                 node_id=arguments["node_id"]
@@ -829,9 +892,17 @@ async def handle_call_tool(name: str, arguments: dict[str, Any]) -> list[TextCon
             result = await client.search_combo_binder(
                 indicator=arguments["indicator"], limit=arguments.get("limit", 50)
             )
+        elif name == "export_combo_binder":
+            result = await client.export_combo_binder(
+                indicator=arguments["indicator"], format=arguments.get("format", "json")
+            )
         elif name == "search_ulp_binder":
             result = await client.search_ulp_binder(
                 indicator=arguments["indicator"], limit=arguments.get("limit", 50)
+            )
+        elif name == "export_ulp_binder":
+            result = await client.export_ulp_binder(
+                indicator=arguments["indicator"], format=arguments.get("format", "json")
             )
         elif name == "search_government_monitoring":
             result = await client.search_government_monitoring(
