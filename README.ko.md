@@ -47,7 +47,7 @@ StealthMole 검색을 위한 MCP 서버로 다양한 StealthMole의 서비스에
 Claude Desktop 사용시:
 
 ```bash
-npx -y @smithery/cli@latest install @cjinzy/mole-mcp-server --client claude
+npx -y @smithery/cli@latest install @cjinzy/stealthmole-mcp-server --client claude
 ```
 
 설치시 다음 정보를 요구합니다.
@@ -60,13 +60,13 @@ npx -y @smithery/cli@latest install @cjinzy/mole-mcp-server --client claude
 ```json
 {
   "mcpServers": {
-    "mole-mcp-server": {
+    "stealthmole-mcp-server": {
       "command": "npx",
       "args": [
         "-y",
         "@smithery/cli@latest",
         "run",
-        "@cjinzy/mole-mcp-server"
+        "@cjinzy/stealthmole-mcp-server"
       ]
       "env": {
         "STEALTHMOLE_API_ACCESS_KEY": "your_access_key",

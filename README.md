@@ -47,7 +47,7 @@ An MCP server for StealthMole search that helps with search and analysis across 
 For Claude Desktop users:
 
 ```bash
-npx -y @smithery/cli@latest install @cjinzy/mole-mcp-server --client claude
+npx -y @smithery/cli@latest install @cjinzy/stealthmole-mcp-server --client claude
 ```
 
 During installation, the following information will be required:
@@ -60,9 +60,14 @@ During installation, the following information will be required:
 ```json
 {
   "mcpServers": {
-    "mole-mcp-server": {
+    "stealthmole-mcp-server": {
       "command": "npx",
-      "args": ["-y", "@smithery/cli@latest", "run", "@cjinzy/mole-mcp-server"],
+      "args": [
+        "-y",
+        "@smithery/cli@latest",
+        "run",
+        "@cjinzy/stealthmole-mcp-server"
+      ],
       "env": {
         "STEALTHMOLE_API_ACCESS_KEY": "your_access_key",
         "STEALTHMOLE_API_SECRET_KEY": "your_secret_key"
