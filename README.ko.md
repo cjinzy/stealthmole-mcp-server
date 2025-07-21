@@ -1,6 +1,6 @@
 # StealthMole MCP Server
 
-[![smithery badge](https://smithery.ai/badge/@cjinzy/mole-mcp-server)](https://smithery.ai/server/@cjinzy/mole-mcp-server)
+[![smithery badge](https://smithery.ai/badge/@cjinzy/stealthmole-mcp-server)](https://smithery.ai/server/@cjinzy/stealthmole-mcp-server)
 
 StealthMole 검색을 위한 MCP 서버로 다양한 StealthMole의 서비스에서 검색 및 분석을 도와줍니다.
 

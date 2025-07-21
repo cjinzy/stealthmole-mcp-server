@@ -1,6 +1,6 @@
 # StealthMole MCP Server
 
-[![smithery badge](https://smithery.ai/badge/@cjinzy/mole-mcp-server)](https://smithery.ai/server/@cjinzy/mole-mcp-server)
+[![smithery badge](https://smithery.ai/badge/@cjinzy/stealthmole-mcp-server)](https://smithery.ai/server/@cjinzy/stealthmole-mcp-server)
 
 An MCP server for StealthMole search that helps with search and analysis across various StealthMole services.
 
