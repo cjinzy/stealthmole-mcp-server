@@ -844,7 +844,7 @@ async def handle_call_tool(name: str, arguments: dict[str, Any]) -> list[TextCon
                 indicator=arguments["indicator"],
                 limit=arguments.get("limit", 50),
                 cursor=arguments.get("cursor", 0),
-                orderType=arguments.get("orderType", "leakedDate"),
+                orderType=arguments.get("orderType", "LeakedDate"),
                 order=arguments.get("order", "desc"),
                 start=arguments.get("start"),
                 end=arguments.get("end"),
