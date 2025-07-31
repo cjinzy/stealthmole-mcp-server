@@ -355,13 +355,13 @@ async def handle_list_tools() -> list[Tool]:
                             "type": "string",
                             "description": "Order type",
                             "enum": [
-                                "leakedDate",
+                                "LeakedDate",
                                 "domain",
                                 "email",
                                 "password",
-                                "leakedFrom",
+                                "LeakedFrom",
                             ],
-                            "default": "leakedDate",
+                            "default": "LeakedDate",
                         },
                         "order": {
                             "type": "string",
