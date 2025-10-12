@@ -6,6 +6,10 @@ homepage: https://www.stealthmole.com/
 repository: https://github.com/cjinzy/stealthmole-mcp-server
 license: MIT
 
+runtime: "container"
+build:
+  dockerfile: "Dockerfile"
+  dockerBuildPath: "."
 startCommand:
   type: stdio
   configSchema:
