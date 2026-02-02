@@ -1,9 +1,24 @@
 [project]
-name = "mole-mcp-server"
+name = "stealthmole-mcp-server"
 version = "0.1.0"
-description = "Add your description here"
+description = "MCP Server for StealthMole dark web and threat intelligence API integration"
 readme = "README.md"
 requires-python = ">=3.10"
+license = "MIT"
+keywords = ["mcp", "stealthmole", "threat-intelligence", "dark-web", "security"]
+authors = [
+    { name = "StealthMole Team" }
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Security",
+]
 dependencies = [
     "httpx>=0.28.1",
     "mcp>=1.11.0",
@@ -15,3 +30,15 @@ dependencies = [
 [project.scripts]
 stealthmole-mcp = "stealthmole_mcp.server:main"
 mole-mcp-server = "stealthmole_mcp.server:main"
+
+[project.urls]
+Homepage = "https://github.com/stealthmole/mcp-server"
+Documentation = "https://github.com/stealthmole/mcp-server#readme"
+Repository = "https://github.com/stealthmole/mcp-server"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/stealthmole_mcp"]

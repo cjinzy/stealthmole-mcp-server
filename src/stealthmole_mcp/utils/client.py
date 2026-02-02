@@ -37,11 +37,11 @@ class StealthMoleClient:
         text: str,
         target: str = "all",
         limit: int = 50,
-        orderType: str = "createDate",
+        order_type: str = "createDate",
         order: str = "desc",
     ) -> Dict[str, Any]:
         """Search dark web content."""
-        return await search_darkweb(indicator, text, target, limit, orderType, order)
+        return await search_darkweb(indicator, text, target, limit, order_type, order)
 
     async def search_telegram(
         self,
@@ -49,25 +49,25 @@ class StealthMoleClient:
         text: str,
         target: str = "all",
         limit: int = 50,
-        orderType: str = "createDate",
+        order_type: str = "createDate",
         order: str = "desc",
     ) -> Dict[str, Any]:
         """Search Telegram content."""
-        return await search_telegram(indicator, text, target, limit, orderType, order)
+        return await search_telegram(indicator, text, target, limit, order_type, order)
 
     async def search_credentials(
         self,
         indicator: str,
         limit: int = 50,
         cursor: int = 0,
-        orderType: str = "leakedDate",
+        order_type: str = "LeakedDate",
         order: str = "desc",
         start: Optional[int] = None,
         end: Optional[int] = None,
     ) -> Dict[str, Any]:
         """Search for leaked credentials."""
         return await search_credentials(
-            indicator, limit, cursor, orderType, order, start, end
+            indicator, limit, cursor, order_type, order, start, end
         )
 
     async def search_ransomware(
@@ -75,11 +75,11 @@ class StealthMoleClient:
         indicator: str,
         limit: int = 50,
         cursor: int = 0,
-        orderType: str = "detectionTime",
+        order_type: str = "detectionTime",
         order: str = "desc",
     ) -> Dict[str, Any]:
         """Search ransomware monitoring data."""
-        return await search_ransomware(indicator, limit, cursor, orderType, order)
+        return await search_ransomware(indicator, limit, cursor, order_type, order)
 
     async def get_node_details(
         self,
@@ -172,12 +172,12 @@ class StealthMoleClient:
         indicator: str,
         limit: int = 50,
         cursor: int = 0,
-        orderType: str = "detectionTime",
+        order_type: str = "detectionTime",
         order: str = "desc",
     ) -> Dict[str, Any]:
         """Search government sector threat monitoring data."""
         return await search_government_monitoring(
-            indicator, limit, cursor, orderType, order
+            indicator, limit, cursor, order_type, order
         )
 
     async def search_leaked_monitoring(
@@ -185,12 +185,12 @@ class StealthMoleClient:
         indicator: str,
         limit: int = 50,
         cursor: int = 0,
-        orderType: str = "detectionTime",
+        order_type: str = "detectionTime",
         order: str = "desc",
     ) -> Dict[str, Any]:
         """Search enterprise sector threat monitoring data."""
         return await search_leaked_monitoring(
-            indicator, limit, cursor, orderType, order
+            indicator, limit, cursor, order_type, order
         )
 
     async def download_file(
